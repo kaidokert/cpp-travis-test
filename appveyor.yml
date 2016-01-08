@@ -13,7 +13,9 @@ platform:
 environment:
   matrix:
     - PlatformToolset: v120
+      os: Visual Studio 2013
     - PlatformToolset: v140
+      os: Visual Studio 2015
 
 configuration:
   - Debug
