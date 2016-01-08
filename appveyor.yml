@@ -10,6 +10,11 @@ platform:
     - Win32
     - x64
 
+environment:
+  matrix:
+    - PlatformToolset: v120
+    - PlatformToolset: v140
+
 configuration:
   - Debug
   - Release
