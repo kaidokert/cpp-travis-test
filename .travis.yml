@@ -9,6 +9,14 @@ env:
     - COMPILER=clang++-3.6
     - COMPILER=clang++-3.7
 
+matrix:
+  include:
+    - os: linux
+    - os: osx
+      osx_image: xcode6.4
+    - os: osx
+      osx_image: xcode7
+
 addons:
   apt:
     sources:
