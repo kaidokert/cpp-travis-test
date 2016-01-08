@@ -58,3 +58,4 @@ CPP_ALL_WARNINGS +=               \
   -Wswitch-enum                   \
   -Wsynth                         \
   -Wunused-macros                 \
+
