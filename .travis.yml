@@ -32,7 +32,7 @@ addons:
       - clang-3.7
 
 install:
-  - if [ "$COVERAGE" ]; then pip install --user cpp-coveralls; fi
+  - if [ $COVERAGE ]; then echo Coverage on; pip install --user cpp-coveralls; fi
 
 before_script:
   - export CXX=$COMPILER
@@ -41,4 +41,4 @@ script:
   - make all $COVERAGE
 
 after_success:
-  - if [ "$COVERAGE" ]; then coveralls --verbose --gcov-options '\-lp' --gcov '$GCOV'; fi
+  - if [ $COVERAGE ]; then coveralls --verbose --gcov-options '\-lp' --gcov '$GCOV'; fi
