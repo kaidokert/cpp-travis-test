@@ -1,0 +1,24 @@
+version: 1.0.{build}
+os:
+  - Visual Studio 2015
+
+platform:
+  - Win32
+  - x64
+
+configuration:
+  - Debug
+  - Release
+
+environment:
+  matrix:
+    - VisualStudioVersion: 12.0
+      PlatformToolset: v120
+    - VisualStudioVersion: 14.0      
+      PlatformToolset: v140
+
+before_build:
+  - cmd: set
+
+build_script:
+  - msbuild /p:PlatformToolset="%PlatformToolset%" "test.vcxproj"  /logger:"%ProgramFiles%\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
