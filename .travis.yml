@@ -4,7 +4,7 @@ sudo: false
 
 env:
   matrix:
-    - COMPILER=g++-4.9
+    - COMPILER=g++-4.9 COVERAGE=coverage GCOV=gcov-4.9
     - COMPILER=g++-5
     - COMPILER=clang++-3.6
     - COMPILER=clang++-3.7
@@ -14,7 +14,6 @@ matrix:
     - os: osx
       osx_image: xcode6.4
       env: COMPILER='clang++'
-
     - os: osx
       osx_image: xcode7
       env: COMPILER='clang++'
@@ -32,8 +31,14 @@ addons:
       - clang-3.6
       - clang-3.7
 
+install:
+  - if [ "$COVERAGE" ]; then pip install --user cpp-coveralls; fi
+
 before_script:
   - export CXX=$COMPILER
 
 script:
-  - make
+  - make all $COVERAGE
+
+after_success:
+  - if [ "$COVERAGE" ]; then coveralls --verbose --gcov-options '\-lp' --gcov '$GCOV'; fi
