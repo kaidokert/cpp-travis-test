@@ -1,10 +1,9 @@
 EXCLUDED_WARNINGS +=              \
   -Wsystem-headers                \
   -Wabi                           \
-  -Waggregate-return              \
+  -Waggregate-return
 
-
-GCC_ALL_WARNINGS +=               \
+GCC_EXTRA_WARNINGS +=             \
   -Wabi-tag                       \
   -Wconditionally-supported       \
   -Wdouble-promotion              \
@@ -19,17 +18,15 @@ GCC_ALL_WARNINGS +=               \
   -Wunsafe-loop-optimizations     \
   -Wuseless-cast                  \
   -Wvector-operation-performance  \
-  -Wzero-as-null-pointer-constant \
-
+  -Wzero-as-null-pointer-constant
 
 CLANG_EXTRA_WARNINGS +=           \
   -Weverything                    \
   -Wno-c++98-compat               \
   -Wno-c++98-compat-pedantic      \
-  -Wno-unknown-pragmas            \
+  -Wno-unknown-pragmas
 
-
-CPP_ALL_WARNINGS +=               \
+CXX_ALL_WARNINGS +=               \
   -Wctor-dtor-privacy             \
   -Wconversion                    \
   -Wcast-align                    \
@@ -57,5 +54,4 @@ CPP_ALL_WARNINGS +=               \
   -Wswitch-default                \
   -Wswitch-enum                   \
   -Wsynth                         \
-  -Wunused-macros                 \
-
+  -Wunused-macros
