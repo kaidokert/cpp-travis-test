@@ -1,6 +1,6 @@
 # cpp-travis-test
 
-[![Travis Status](https://travis-ci.org/kaidokert/cpp-travis-test.svg?branch=master)](https://travis-ci.org/kaidokert/cpp-travis-test) [![Appveyor Status](https://ci.appveyor.com/api/projects/status/6k3s500lbwlrc03e?svg=true)](https://ci.appveyor.com/project/kaidokert/cpp-travis-test) [![Coveralls Status](https://coveralls.io/repos/kaidokert/cpp-travis-test/badge.svg?branch=master&service=github)](https://coveralls.io/github/kaidokert/cpp-travis-test)
+[![Travis Status](https://travis-ci.org/kaidokert/cpp-travis-test.svg?branch=master)](https://travis-ci.org/kaidokert/cpp-travis-test) [![Appveyor Status](https://ci.appveyor.com/api/projects/status/6k3s500lbwlrc03e?svg=true)](https://ci.appveyor.com/project/kaidokert/cpp-travis-test) [![Coverage Status](https://coveralls.io/repos/kaidokert/cpp-travis-test/badge.svg)](https://coveralls.io/github/kaidokert/cpp-travis-test)
 
 Skeleton project to build 3 useless lines of C++ code on all easily available continuous integration systems with maximum warnings and code coverage reporting on.
 
