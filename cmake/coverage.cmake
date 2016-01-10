@@ -1,5 +1,6 @@
 macro(add_executable_coverage target src)
   string(LENGTH "${COVERAGE}" coverage_on)
+  set(coverage_on ${coverage_on} CACHE BOOL "")
   if(${coverage_on})
     set(mutable_src ${src} "")
     string (REPLACE ";" ".gcno " gcno_files "${mutable_src}" )
