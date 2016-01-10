@@ -1,15 +1,14 @@
 include(CheckCXXSourceCompiles)
-include(CMakeCheckCompilerFlagCommonPatterns)
 
 include(cmake/compiler-flags.cmake)
 
 macro(check_supported_flags OUTPUT_VAR)
-  CHECK_COMPILER_FLAG_COMMON_PATTERNS(_CheckCXXCompilerFlag_COMMON_PATTERNS)
   foreach(flag ${GCC_EXTRA_WARNINGS} ${CLANG_EXTRA_WARNINGS})
     set(CMAKE_REQUIRED_DEFINITIONS "-W${flag}")
     string(REPLACE "=" "-" result_var "flag-${flag}-result" )
+    string(REPLACE "+" "__" result_var ${result_var})
     CHECK_CXX_SOURCE_COMPILES("int main() { return 0; }" ${result_var}
-      FAIL_REGEX ${_CheckCXXCompilerFlag_COMMON_PATTERNS})
+      FAIL_REGEX "nrecognized.*option|unknown.*option|not supported")
     if(${result_var})
       list(APPEND CXX_ALL_WARNINGS "${flag}")
     endif()
