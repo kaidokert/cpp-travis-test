@@ -2,7 +2,7 @@ cmake-build/
 vcbuild/
 
 Debug/
-x64/Debug/
+Release/
 
 # Compiled Object files
 *.slo
