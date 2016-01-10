@@ -1,4 +1,8 @@
-cmake-build
+cmake-build/
+vcbuild/
+
+Debug/
+x64/Debug/
 
 # Compiled Object files
 *.slo

@@ -19,3 +19,7 @@ environment:
 
 build_script:
   - msbuild /p:PlatformToolset="%PlatformToolset%" "sample.vcxproj"  /logger:"%ProgramFiles%\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
+  - mkdir vcbuild
+  - cd vcbuild
+  - cmake .. -G "Visual Studio 12 2013"
+  - msbuild /p:PlatformToolset="%PlatformToolset%" "sample.vcxproj" /logger:"%ProgramFiles%\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
