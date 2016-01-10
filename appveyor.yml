@@ -14,11 +14,11 @@ environment:
   matrix:
     - VisualStudioVersion: 12.0
       PlatformToolset: v120
-    - VisualStudioVersion: 14.0      
+    - VisualStudioVersion: 14.0
       PlatformToolset: v140
 
 before_build:
   - cmd: set
 
 build_script:
-  - msbuild /p:PlatformToolset="%PlatformToolset%" "test.vcxproj"  /logger:"%ProgramFiles%\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
+  - msbuild /p:PlatformToolset="%PlatformToolset%" "sample.vcxproj"  /logger:"%ProgramFiles%\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"

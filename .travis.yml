@@ -39,10 +39,10 @@ before_script:
   - export CXX=$COMPILER
 
 script:
-  - make all $COVERAGE
   - mkdir cmake-build; cd cmake-build
   - cmake .. -DCMAKE_CXX_COMPILER=$CXX -DCOVERAGE=$COVERAGE
   - make VERBOSE=1 $COVERAGE
+  - make all $COVERAGE
 
 after_success:
   - if test -n "$COVERAGE"; then coveralls --verbose --gcov-options '\-lp' --gcov '$GCOV'; fi
