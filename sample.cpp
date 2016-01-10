@@ -1,4 +1,4 @@
-#pragma warning( disable : 4350 )
+#pragma warning( disable : 4350 4710 )
 #pragma warning(push, 3)
 #include <iostream>
 #pragma warning(pop)
@@ -8,4 +8,4 @@ int main(int , char **) {
     return 0;
 }
 
-#pragma warning( disable : 4710 4514)
+#pragma warning( disable : 4514)
