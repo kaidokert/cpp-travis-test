@@ -33,9 +33,7 @@ addons:
 
 install:
   - if test -n "$COVERAGE"; then pip install --user cpp-coveralls; fi
-  - if [ $TRAVIS_OS_NAME == osx ]; then #see travis-ci/travis-ci#5154
-         brew update ; brew unlink cmake ; brew install cmake28
-    fi
+  - if [ $TRAVIS_OS_NAME == osx ]; then brew update ; brew unlink cmake ; brew install cmake28; fi
 
 before_script:
   - export CXX=$COMPILER
