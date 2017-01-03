@@ -4,7 +4,7 @@ mkdir -p $TC
 
 get_toolchain() {
   GCC_DIR=$TC/$1
-  GCC_ARCHIVE=$TC/$2
+  GCC_ARCHIVE=/tmp/$2
   GCC_URL=$3
   if [ ! -e $GCC_DIR/bin/arm-none-eabi-g++ ]; then
     wget -nc $GCC_URL -O $GCC_ARCHIVE

@@ -15,7 +15,10 @@ matrix:
       osx_image: xcode6.4
       env: COMPILER='clang++'
     - os: osx
-      osx_image: xcode7
+      osx_image: xcode7.3
+      env: COMPILER='clang++'
+    - os: osx
+      osx_image: xcode8.2
       env: COMPILER='clang++'
 
 addons:
@@ -37,7 +40,7 @@ cache:
 
 install:
   - if test -n "$COVERAGE"; then pip install --user cpp-coveralls; fi
-  - if [ $TRAVIS_OS_NAME == osx ]; then brew update ; brew unlink cmake ; brew install cmake28; fi
+  - if [ $TRAVIS_OS_NAME == osx ]; then brew update ; brew install cmake ; fi
   - if [ $TRAVIS_OS_NAME == linux ]; then . sync-arm-toolchains.sh ; fi
 
 before_script:
