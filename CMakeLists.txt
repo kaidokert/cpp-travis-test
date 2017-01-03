@@ -1,5 +1,7 @@
 cmake_minimum_required(VERSION 2.8.7) # Travis default
 
+include(cmake/arm-toolchain.cmake)
+
 project(sample CXX)
 
 include(cmake/coverage.cmake)
@@ -16,6 +18,10 @@ else()
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${LANG_FLAGS} ${WARN_FLAGS} ${EXTRA_WARNINGS}")
 endif()
 
-set(SRC sample.cpp)
+if(${arm_build_on})
+  set(SRC sample.cpp)
+else()
+  set(SRC sample_baremetal.cpp)
+endif()
 add_executable(sample ${SRC})
 add_executable_coverage(coverage_sample ${SRC})

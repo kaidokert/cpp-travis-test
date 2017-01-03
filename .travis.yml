@@ -8,6 +8,9 @@ env:
     - COMPILER=g++-5
     - COMPILER=clang++-3.6
     - COMPILER=clang++-3.7
+    - COMPILER=arm-none-eabi-g++ TOOLCHAIN=gcc-arm-none-eabi-4_9-2015q3 ARM=yes
+    - COMPILER=arm-none-eabi-g++ TOOLCHAIN=gcc-arm-none-eabi-5_4-2016q3 ARM=yes
+    - COMPILER=arm-none-eabi-g++ TOOLCHAIN=gcc-arm-none-eabi-6_2-2016q4 ARM=yes
 
 matrix:
   include:
@@ -45,10 +48,11 @@ install:
 
 before_script:
   - export CXX=$COMPILER
+  - export PATH=$PATH:$HOME/arm-toolchains/$TOOLCHAIN/bin
 
 script:
   - mkdir cmake-build; cd cmake-build
-  - cmake .. -DCMAKE_CXX_COMPILER=$CXX -DCOVERAGE=$COVERAGE
+  - cmake .. -DCMAKE_CXX_COMPILER=$CXX -DCOVERAGE=$COVERAGE -DARM=$ARM
   - make VERBOSE=1 $COVERAGE
   - make all $COVERAGE
   - cd ..
