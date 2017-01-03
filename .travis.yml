@@ -49,6 +49,7 @@ install:
 before_script:
   - export CXX=$COMPILER
   - export PATH=$PATH:$HOME/arm-toolchains/$TOOLCHAIN/bin
+  - find $HOME -name arm-none-eabi-g++
 
 script:
   - mkdir cmake-build; cd cmake-build
