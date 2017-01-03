@@ -51,6 +51,7 @@ before_script:
   - export CXX=$COMPILER
   - export PATH=$PATH:$HOME/arm-toolchains/$TOOLCHAIN/bin
   - find $HOME -name arm-none-eabi-g++
+  - cmake --version
 
 script:
   - mkdir cmake-build; cd cmake-build

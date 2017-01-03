@@ -1,3 +1,4 @@
+#!/bin/sh
 export TC=$HOME/arm-toolchains
 
 mkdir -p $TC
