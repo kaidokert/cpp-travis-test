@@ -36,6 +36,7 @@ addons:
       - g++-5
       - clang-3.6
       - clang-3.7
+      - libc6-i386 #required to run 32-bit toolchains
 
 cache:
   directories:
