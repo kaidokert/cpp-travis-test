@@ -40,7 +40,7 @@ cache:
 
 install:
   - if test -n "$COVERAGE"; then pip install --user cpp-coveralls; fi
-  - if [ $TRAVIS_OS_NAME == osx ]; then brew update ; brew install cmake ; fi
+  - if [ $TRAVIS_OS_NAME == osx ]; then brew update ; brew unlink cmake; brew install cmake ; fi
   - if [ $TRAVIS_OS_NAME == linux ]; then . sync-arm-toolchains.sh ; fi
 
 before_script:
