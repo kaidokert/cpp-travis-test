@@ -3,10 +3,17 @@ set(arm_build_on ${arm_build_on} CACHE BOOL "")
 if(${arm_build_on})
 
   set(_CMAKE_TOOLCHAIN_PREFIX arm-none-eabi- )
-  set(CMAKE_C_COMPILER        ${_CMAKE_TOOLCHAIN_PREFIX}gcc)
-  set(CMAKE_CXX_COMPILER      ${_CMAKE_TOOLCHAIN_PREFIX}g++)
 
-  set(CMAKE_TRY_COMPILE_TARGET_TYPE "STATIC_LIBRARY")
+  if(CMAKE_VERSION VERSION_LESS 3.6)
+    include(CMakeForceCompiler)
+    cmake_force_c_compiler(  "${_CMAKE_TOOLCHAIN_PREFIX}gcc" GNU)
+    cmake_force_cxx_compiler("${_CMAKE_TOOLCHAIN_PREFIX}g++" GNU)
+  else()
+    set(CMAKE_TRY_COMPILE_TARGET_TYPE STATIC_LIBRARY)
+    set(CMAKE_C_COMPILER        ${_CMAKE_TOOLCHAIN_PREFIX}gcc)
+    set(CMAKE_CXX_COMPILER      ${_CMAKE_TOOLCHAIN_PREFIX}g++)
+  endif()
+
   set(CMAKE_SYSTEM_NAME "Generic")
 
   set(CORE cortex-m3)
