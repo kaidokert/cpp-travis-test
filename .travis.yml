@@ -8,9 +8,9 @@ env:
     - COMPILER=g++-5
     - COMPILER=clang++-3.6
     - COMPILER=clang++-3.7
-    - COMPILER=arm-none-eabi-g++ TOOLCHAIN=gcc-arm-none-eabi-4_9-2015q3 ARM=yes
-    - COMPILER=arm-none-eabi-g++ TOOLCHAIN=gcc-arm-none-eabi-5_4-2016q3 ARM=yes
-    - COMPILER=arm-none-eabi-g++ TOOLCHAIN=gcc-arm-none-eabi-6_2-2016q4 ARM=yes
+    - TOOLCHAIN=gcc-arm-none-eabi-4_9-2015q3 COMPILER=arm-none-eabi-g++ ARM=yes
+    - TOOLCHAIN=gcc-arm-none-eabi-5_4-2016q3 COMPILER=arm-none-eabi-g++ ARM=yes
+    - TOOLCHAIN=gcc-arm-none-eabi-6_2-2016q4 COMPILER=arm-none-eabi-g++ ARM=yes
 
 matrix:
   include:
@@ -49,6 +49,7 @@ install:
   - if test -n "$COVERAGE"; then pip install --user cpp-coveralls; fi
   - if [ $TRAVIS_OS_NAME == osx ]; then brew update ; brew uninstall --force cmake; brew install cmake ; fi
   - if [ $TRAVIS_OS_NAME == linux ]; then . sync-arm-toolchains.sh ; fi
+  - if [ $TRAVIS_OS_NAME == linux ]; then pip install requests[security] ; fi
 
 before_script:
   - export CXX=$COMPILER
