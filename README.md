@@ -6,6 +6,8 @@ Skeleton project to build 3 useless lines of C++ 11 code on all easily available
 
 **Travis** : Ubuntu/Precise with gcc-4.9, gcc-5 and clang, MacOS with Xcode/clang
 
+**More Travis**:    arm-none-eabi baremetal, gcc 4.9, 5.x and 6.x
+
 **Appveyor** : builds with VS2013 and VS2015, 32/64bit versions
 
 **Coverage** : gcc/gcov with coveralls.io reporting
@@ -17,7 +19,6 @@ Also includes minimum CMake setup for equivalent settings
 Tried to keep all configuration files as concise and DRY as possible for maintainability
 
 ### TODO
-* Add arm-none-eabi-gcc
 * Build -O0, Os, O3 variants on gcc/clang
 * Add [Catch](https://github.com/philsquared/Catch) / [Lest](https://github.com/martinmoene/lest)
 * add [ccache](https://github.com/jrosdahl/ccache)

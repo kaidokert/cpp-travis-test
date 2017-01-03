@@ -8,6 +8,9 @@ env:
     - COMPILER=g++-5
     - COMPILER=clang++-3.6
     - COMPILER=clang++-3.7
+    - TOOLCHAIN=gcc-arm-none-eabi-4_9-2015q3 COMPILER=arm-none-eabi-g++ ARM=yes
+    - TOOLCHAIN=gcc-arm-none-eabi-5_4-2016q3 COMPILER=arm-none-eabi-g++ ARM=yes
+    - TOOLCHAIN=gcc-arm-none-eabi-6_2-2016q4 COMPILER=arm-none-eabi-g++ ARM=yes
 
 matrix:
   include:
@@ -28,27 +31,34 @@ addons:
       - llvm-toolchain-precise
       - llvm-toolchain-precise-3.6
       - llvm-toolchain-precise-3.7
+      - george-edison55-precise-backports
     packages:
       - g++-4.9
       - g++-5
       - clang-3.6
       - clang-3.7
+      - libc6-i386 #required to run 32-bit toolchains
+      - cmake
+      - cmake-data
 
 cache:
   directories:
     - $HOME/arm-toolchains
 
 install:
-  - if test -n "$COVERAGE"; then pip install --user cpp-coveralls; fi
+  - if test -n "$COVERAGE"; then pip install --user cpp-coveralls requests[security]; fi
   - if [ $TRAVIS_OS_NAME == osx ]; then brew update ; brew uninstall --force cmake; brew install cmake ; fi
   - if [ $TRAVIS_OS_NAME == linux ]; then . sync-arm-toolchains.sh ; fi
 
 before_script:
   - export CXX=$COMPILER
+  - export PATH=$PATH:$HOME/arm-toolchains/$TOOLCHAIN/bin
+  - find $HOME -name arm-none-eabi-g++
+  - cmake --version
 
 script:
   - mkdir cmake-build; cd cmake-build
-  - cmake .. -DCMAKE_CXX_COMPILER=$CXX -DCOVERAGE=$COVERAGE
+  - cmake .. -DCMAKE_CXX_COMPILER=$CXX -DCOVERAGE=$COVERAGE -DARM=$ARM
   - make VERBOSE=1 $COVERAGE
   - make all $COVERAGE
   - cd ..

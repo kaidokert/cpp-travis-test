@@ -1,4 +1,5 @@
 cmake-build/
+cmake-build-debug/
 vcbuild/
 
 Debug/
@@ -32,3 +33,4 @@ Release/
 *.exe
 *.out
 *.app
+build
