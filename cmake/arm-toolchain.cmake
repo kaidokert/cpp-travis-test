@@ -34,7 +34,6 @@ if(${arm_build_on})
 
   set(CXX_COMPILE_FLAGS "-fno-rtti -fno-exceptions")
 
-  set(CMAKE_CXX_FLAGS "${MCU_FLAGS} ${ABI_FLAGS} ${CXX_COMPILE_FLAGS}")
-  set(CMAKE_C_FLAGS "${MCU_FLAGS} ${ABI_FLAGS}")
-
+  set(CMAKE_CXX_FLAGS "${MCU_FLAGS} ${ABI_FLAGS} ${CXX_COMPILE_FLAGS}" CACHE STRING "cxx flags" FORCE)
+  set(CMAKE_C_FLAGS "${MCU_FLAGS} ${ABI_FLAGS}" CACHE STRING "c flags" FORCE)
 endif()
