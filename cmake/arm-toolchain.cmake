@@ -10,7 +10,9 @@ if(${arm_build_on})
   set(CMAKE_SYSTEM_NAME "Generic")
 
   set(CORE cortex-m3)
+  set(OPTIMIZE "-Os")
   string(LENGTH "${LTO}" lto_on)
+  set(lto_on ${lto_on} CACHE BOOL "" PARENT_SCOPE)
   if(${lto_on})
     set(LTO "-flto")
   endif()
@@ -20,7 +22,7 @@ if(${arm_build_on})
           )
 
   set(ABI_FLAGS
-          "-ffunction-sections -fdata-sections -g -specs=nano.specs -nostdlib -nostartfiles -Os ${LTO}"
+          "-ffunction-sections -fdata-sections -g -specs=nano.specs -nostdlib -nostartfiles ${OPTIMIZE} ${LTO}"
           )
 
   set(CXX_COMPILE_FLAGS "-fno-rtti -fno-exceptions")
