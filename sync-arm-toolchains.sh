@@ -27,3 +27,6 @@ get_toolchain gcc-arm-none-eabi-5_4-2016q3 gcc-arm-none-eabi-5_4-2016q3-20160926
 
 get_toolchain gcc-arm-none-eabi-6_2-2016q4 gcc-arm-none-eabi-6_2-2016q4-20161216-linux.tar.bz2 \
   https://developer.arm.com/-/media/Files/downloads/gnu-rm/6-2016q4/gcc-arm-none-eabi-6_2-2016q4-20161216-linux.tar.bz2
+
+get_toolchain gcc-arm-none-eabi-6_3-2017q2 gcc-arm-none-eabi-6-2017-q2-update-linux.tar.bz2 \
+  https://developer.arm.com/-/media/Files/downloads/gnu-rm/6-2017q2/gcc-arm-none-eabi-6-2017-q2-update-linux.tar.bz2
