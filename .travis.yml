@@ -1,11 +1,16 @@
 language: cpp
 
-sudo: false
+_sources: &repos
+  - ubuntu-toolchain-r-test
+  - llvm-toolchain-trusty
+  - llvm-toolchain-trusty-4.0
+  - llvm-toolchain-trusty-5.0
 
 env:
   matrix:
     - COMPILER=g++-4.9 COVERAGE=coverage GCOV=gcov-4.9
     - COMPILER=g++-5
+    - COMPILER=g++-7
     - COMPILER=clang++-3.6
     - COMPILER=clang++-3.7
     - TOOLCHAIN=gcc-arm-none-eabi-4_9-2015q3 COMPILER=arm-none-eabi-g++ ARM=yes
@@ -35,6 +40,7 @@ addons:
     packages:
       - g++-4.9
       - g++-5
+      - g++-7
       - clang-3.6
       - clang-3.7
       - libc6-i386 #required to run 32-bit toolchains
