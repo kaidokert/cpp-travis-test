@@ -2,6 +2,7 @@ set(GCC_EXTRA_WARNINGS
   abi-tag
   conditionally-supported
   double-promotion
+  duplicated-branches
   logical-op
   noexcept
   strict-null-sentinel
