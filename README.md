@@ -22,3 +22,4 @@ Tried to keep all configuration files as concise and DRY as possible for maintai
 * Build -O0, Os, O3 variants on gcc/clang
 * Add [Catch](https://github.com/philsquared/Catch) / [Lest](https://github.com/martinmoene/lest)
 * add [ccache](https://github.com/jrosdahl/ccache)
+
