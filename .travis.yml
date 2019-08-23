@@ -61,8 +61,8 @@ before_script:
 script:
   - mkdir cmake-build; cd cmake-build
   - cmake .. -DCMAKE_CXX_COMPILER=$CXX -DCOVERAGE=$COVERAGE -DARM=$ARM
-  - make VERBOSE=1 $COVERAGE
-  - make all $COVERAGE
+  - cmake --build . VERBOSE=1 $COVERAGE
+  - cmake --build $COVERAGE
   - cd ..
 
 after_success:
